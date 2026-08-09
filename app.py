@@ -19,19 +19,20 @@ def load_all_models():
     bone_path = tf.keras.utils.get_file("lumira_bone_model.h5", bone_url)
 
     try:
-        neuro = tf.keras.models.load_model(neuro_path, compile=False)
+        # safe_mode=False handles newer/older layer config arguments mismatch
+        neuro = tf.keras.models.load_model(neuro_path, compile=False, safe_mode=False)
     except Exception as e:
         neuro = None
         st.error(f"Neuro Model Load Error: {e}")
 
     try:
-        cardio = tf.keras.models.load_model(cardio_path, compile=False)
+        cardio = tf.keras.models.load_model(cardio_path, compile=False, safe_mode=False)
     except Exception as e:
         cardio = None
         st.error(f"Cardio Model Load Error: {e}")
 
     try:
-        bone = tf.keras.models.load_model(bone_path, compile=False)
+        bone = tf.keras.models.load_model(bone_path, compile=False, safe_mode=False)
     except Exception as e:
         bone = None
         st.error(f"Bone Model Load Error: {e}")
