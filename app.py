@@ -70,7 +70,7 @@ def load_all_models():
     neuro_url = "https://huggingface.co/sharika17/lumira-models/resolve/main/lumira_neuro_model.h5"
     cardio_url = "https://huggingface.co/sharika17/lumira-models/resolve/main/lumira_cardio_model.h5"
     bone_url = "https://huggingface.co/sharika17/lumira-models/resolve/main/lumira_bone_model.h5"
-
+    
     neuro = get_model('lumira_neuro_model.h5', neuro_url)
     cardio = get_model('lumira_cardio_model.h5', cardio_url)
     bone = get_model('lumira_bone_model.h5', bone_url)
