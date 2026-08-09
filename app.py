@@ -57,12 +57,23 @@ st.markdown(animated_bg_css, unsafe_allow_html=True)
 st.title("🏥 Lumira AI - Multi-Modal Medical Imaging Diagnosis")
 
 # Load Models
+import os
+import urllib.request
+
+def get_model(file_name, url):
+    if not os.path.exists(file_name):
+        urllib.request.urlretrieve(url, file_name)
+    return tf.keras.models.load_model(file_name)
+
 @st.cache_resource
 def load_all_models():
-    # Note: LFS may be required if these files are too large
-    neuro = tf.keras.models.load_model('lumira_neuro_model.h5')
-    cardio = tf.keras.models.load_model('lumira_cardio_model.h5')
-    bone = tf.keras.models.load_model('lumira_bone_model.h5')
+    neuro_url = "https://huggingface.co/sharika17/lumira-models/resolve/main/lumira_neuro_model.h5"
+    cardio_url = "https://huggingface.co/sharika17/lumira-models/resolve/main/lumira_cardio_model.h5"
+    bone_url = "https://huggingface.co/sharika17/lumira-models/resolve/main/lumira_bone_model.h5"
+
+    neuro = get_model('lumira_neuro_model.h5', neuro_url)
+    cardio = get_model('lumira_cardio_model.h5', cardio_url)
+    bone = get_model('lumira_bone_model.h5', bone_url)
     return neuro, cardio, bone
 
 # Add a spinner while models load
