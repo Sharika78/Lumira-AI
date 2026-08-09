@@ -92,4 +92,7 @@ copies of the Software.
 ## ⚠️ Disclaimer
 Note: This application is an AI prototype developed exclusively for educational, research, and technical evaluation purposes. It is not intended for real clinical diagnosis or direct medical use.
    
-     
+ ## click here to view live app
+ ```
+👉 [https://lumira-ai-ecbthsvtpyqkv8g47ufuzo.streamlit.app](https://lumira-ai-ecbthsvtpyqkv8g47ufuzo.streamlit.app)
+ ```
