@@ -1,6 +1,5 @@
 import streamlit as st
 import tensorflow as tf
-from huggingface_hub import hf_hub_download
 
 # Page configuration
 st.set_page_config(
@@ -11,12 +10,16 @@ st.set_page_config(
 
 @st.cache_resource
 def load_all_models():
-    # Download models safely using huggingface_hub
-    neuro_path = hf_hub_download(repo_id="sharika17/lumira-models", filename="lumira_neuro_model.h5")
-    cardio_path = hf_hub_download(repo_id="sharika17/lumira-models", filename="lumira_cardio_model.h5")
-    bone_path = hf_hub_download(repo_id="sharika17/lumira-models", filename="lumira_bone_model.h5")
+    # Define direct resolve URLs from your Hugging Face repository
+    neuro_url = "https://huggingface.co/sharika17/lumira-models/resolve/main/lumira_neuro_model.h5"
+    cardio_url = "https://huggingface.co/sharika17/lumira-models/resolve/main/lumira_cardio_model.h5"
+    bone_url = "https://huggingface.co/sharika17/lumira-models/resolve/main/lumira_bone_model.h5"
 
-    # Load models with compile=False to avoid layer/optimizer metric mismatch TypeErrors
+    # Use Keras's built-in robust file downloader and loader
+    neuro_path = tf.keras.utils.get_file("lumira_neuro_model.h5", neuro_url)
+    cardio_path = tf.keras.utils.get_file("lumira_cardio_model.h5", cardio_url)
+    bone_path = tf.keras.utils.get_file("lumira_bone_model.h5", bone_url)
+
     neuro = tf.keras.models.load_model(neuro_path, compile=False)
     cardio = tf.keras.models.load_model(cardio_path, compile=False)
     bone = tf.keras.models.load_model(bone_path, compile=False)
