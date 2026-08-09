@@ -3,7 +3,6 @@ import urllib.request
 import streamlit as st
 import tensorflow as tf
 
-@st.cache_resource
 def get_model(file_name, url):
     if not os.path.exists(file_name):
         urllib.request.urlretrieve(url, file_name)
