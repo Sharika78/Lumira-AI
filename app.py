@@ -11,14 +11,15 @@ st.set_page_config(
 
 @st.cache_resource
 def load_all_models():
-    # Directly download the model files from your Hugging Face repository using huggingface_hub
+    # Download models safely using huggingface_hub
     neuro_path = hf_hub_download(repo_id="sharika17/lumira-models", filename="lumira_neuro_model.h5")
     cardio_path = hf_hub_download(repo_id="sharika17/lumira-models", filename="lumira_cardio_model.h5")
     bone_path = hf_hub_download(repo_id="sharika17/lumira-models", filename="lumira_bone_model.h5")
 
-    neuro = tf.keras.models.load_model(neuro_path)
-    cardio = tf.keras.models.load_model(cardio_path)
-    bone = tf.keras.models.load_model(bone_path)
+    # Load models with compile=False to avoid layer/optimizer metric mismatch TypeErrors
+    neuro = tf.keras.models.load_model(neuro_path, compile=False)
+    cardio = tf.keras.models.load_model(cardio_path, compile=False)
+    bone = tf.keras.models.load_model(bone_path, compile=False)
     
     return neuro, cardio, bone
 
