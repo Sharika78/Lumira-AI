@@ -12,7 +12,7 @@
   <b>An AI-powered clinical decision support platform for multi-modal medical scan analysis.</b>
 </p>
 
-[🌐 Live Demo]([#-live-demo--access][(https://lumira-ai-ecbthsvtpyqkv8g47ufuzo.streamlit.app) • [✨ Features](#-key-features) • [🛠️ Tech Stack](#️-tech-stack) • [🚀 Quick Start](#-quick-start)
+[🌐 Live Demo][(https://lumira-ai-ecbthsvtpyqkv8g47ufuzo.streamlit.app) • [✨ Features](#-key-features) • [🛠️ Tech Stack](#️-tech-stack) • [🚀 Quick Start](#-quick-start)
 
 ---
 
