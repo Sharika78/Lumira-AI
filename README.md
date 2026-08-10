@@ -28,7 +28,7 @@
 
 | Access Type | Link / Command |
 | :--- | :--- |
-| **🔗 Web App** | [Click Here to View Live App](https://your-app-name.streamlit.app) *(Update link after hosting)* |
+| **🔗 Web App** | [Click Here to View Live App](https://lumira-ai-ecbthsvtpyqkv8g47ufuzo.streamlit.app) *(Update link after hosting)* |
 | **💻 Local Host** | `streamlit run app.py` (Runs on `http://localhost:8501`) |
 
 ---
